@@ -1,16 +1,16 @@
 import {lazy, Suspense, useEffect, useMemo, useState} from "react";
+import Tabs from "@/components/UI/tabs/Tabs.tsx";
+import CommentItem from "@/components/commentItem/CommentItem.tsx";
+import Loading from "@/components/UI/loading/Loading.tsx";
+import ErrorBoundary from "@/components/errorBoundary/ErrorBoundary.tsx";
+
 import {useTranslation} from "react-i18next";
 import {getComments} from "@/shared/store/actions/comments.ts";
 import {getDesigners} from "@/shared/store/actions/designers.ts";
 import {selectComments, selectDesigners, useAppDispatch, useTypedSelector} from "@/shared/store";
-import CommentItem from "@/components/commentItem/CommentItem.tsx";
-
-import Tabs from "@/components/UI/tabs/Tabs.tsx";
 
 import {calculateMedian, calculateTaskDuration, InitialAccTypes, typeButtons} from "./model/helper";
 import styles from "./styles.module.scss"
-import Loading from "@/components/UI/loading/Loading.tsx";
-import ErrorBoundary from "@/components/errorBoundary/ErrorBoundary.tsx";
 
 const DesignerItem = lazy(() => import('@/components/designerItem/DesignerItem.tsx'));
 
@@ -21,7 +21,8 @@ const Home = () => {
     const {comments, status: commentsStatus} = useTypedSelector(selectComments);
     const {designers, status: designersStatus} = useTypedSelector(selectDesigners);
 
-    const [type, setType] = useState(typeButtons(t)[0].value)
+    const buttons = typeButtons(t)
+    const [type, setType] = useState(buttons[0].value)
 
     useEffect(() => {
         dispatch(getComments());
@@ -70,7 +71,7 @@ const Home = () => {
             <Tabs
                 type={type}
                 setType={setType}
-                options={typeButtons(t)}
+                options={buttons}
             />
             <div className={styles.home__list}>
                 {type === "comments" && comments?.map(comment => (

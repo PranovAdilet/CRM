@@ -3,8 +3,8 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 import {navbarMenu} from "./model/helper.ts";
-import styles from "./styles.module.scss"
 import clsx from "clsx";
+import styles from "./styles.module.scss"
 
 const Navbar = () => {
     const [selectedRoute, setSelectedRoute] = useState("");
