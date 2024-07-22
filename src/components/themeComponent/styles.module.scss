@@ -1,0 +1,12 @@
+.form{
+  &__button{
+    color: var(--grey, #8e8e93);
+
+    svg{
+      width: 3rem;
+    }
+  }
+  &__sun{
+    color: #fff;
+  }
+}

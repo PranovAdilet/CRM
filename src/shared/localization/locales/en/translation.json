@@ -1,0 +1,41 @@
+{
+  "header": {
+    "welcome": "Welcome to CRM System",
+    "week": "Week"
+  },
+  "navbar": {
+    "menu": {
+      "dashboard": "Dashboard",
+      "tasks": "Tasks",
+      "designer": "Designers"
+    }
+  },
+  "home": {
+    "comments": "Comments",
+    "designers": "Designers",
+    "medianTasks": "Median task completion time:",
+    "numberTasks": "Number of completed tasks:"
+  },
+  "tasks": {
+    "week": "Week",
+    "profit": "Profit",
+    "expenses": "Expenses",
+    "difference": "Difference",
+    "title": "Chart of closed tasks for the month",
+    "label": "Number of weeks",
+    "alert": "Max 20",
+    "chart": "Chart",
+    "pieChart": "PieChart"
+  },
+  "designers": {
+    "avatar": "Avatar",
+    "username": "Username",
+    "email": "Email",
+    "closedTasks": "Closed Tasks",
+    "inProgressTasks": "Tasks in Progress",
+    "all": "All",
+    "done": "Done",
+    "new": "New",
+    "inProgress": "In Progress"
+  }
+}

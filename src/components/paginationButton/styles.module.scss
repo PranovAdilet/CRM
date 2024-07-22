@@ -1,0 +1,34 @@
+.btn {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  border: 1px solid grey;
+  border-radius: 8px;
+  color: grey;
+
+  @include transition;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: #fc0;
+      border: 1px solid #fc0;
+      color: #131516;
+    }
+  }
+
+  &:active {
+    background-color: #fc0;
+    border: 1px solid #fc0;
+    color: #131516;
+  }
+
+  &_active {
+    background-color: #fc0;
+    border: 1px solid #fc0;
+    color: #131516;
+  }
+}
