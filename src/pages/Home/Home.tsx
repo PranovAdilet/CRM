@@ -1,16 +1,18 @@
-import {useEffect, useMemo, useState} from "react";
+import {lazy, Suspense, useEffect, useMemo, useState} from "react";
 import {useTranslation} from "react-i18next";
 import {getComments} from "@/shared/store/actions/comments.ts";
 import {getDesigners} from "@/shared/store/actions/designers.ts";
 import {selectComments, selectDesigners, useAppDispatch, useTypedSelector} from "@/shared/store";
 import CommentItem from "@/components/commentItem/CommentItem.tsx";
-import DesignerItem from "@/components/designerItem/DesignerItem.tsx";
 
 import Tabs from "@/components/UI/tabs/Tabs.tsx";
 
 import {calculateMedian, calculateTaskDuration, InitialAccTypes, typeButtons} from "./model/helper";
 import styles from "./styles.module.scss"
 import Loading from "@/components/UI/loading/Loading.tsx";
+import ErrorBoundary from "@/components/errorBoundary/ErrorBoundary.tsx";
+
+const DesignerItem = lazy(() => import('@/components/designerItem/DesignerItem.tsx'));
 
 const Home = () => {
     const dispatch = useAppDispatch()
@@ -74,9 +76,15 @@ const Home = () => {
                 {type === "comments" && comments?.map(comment => (
                     <CommentItem key={comment.id} {...comment} />
                 ))}
-                {type === "designers" && processedDesigners?.map(designer => (
-                    <DesignerItem key={designer.email} {...designer} />
-                ))}
+                {type === "designers" && (
+                    <Suspense fallback={<Loading />}>
+                        <ErrorBoundary>
+                            {processedDesigners?.map(designer => (
+                                <DesignerItem key={designer.email} {...designer} />
+                            ))}
+                        </ErrorBoundary>
+                    </Suspense>
+                )}
             </div>
         </div>
     );
