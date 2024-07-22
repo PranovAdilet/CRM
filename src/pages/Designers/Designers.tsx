@@ -1,14 +1,15 @@
 import {useEffect} from "react";
+import {useTranslation} from "react-i18next";
+import Loading from "@/components/UI/loading/Loading.tsx";
+import Error from "@/components/UI/error/Error.tsx";
+import DesignerThItem from "@/components/designerThItem/DesignerThItem.tsx";
 import DesignerTableItem from "@/components/designerTableItem/DesignerTableItem.tsx";
 import DesignerFilters from "@/components/designerFilters/DesignerFilters.tsx";
 import DesignerPagination from "@/components/designerPagination/DesignerPagination.tsx";
-import Loading from "@/components/UI/loading/Loading.tsx";
-import Error from "@/components/UI/error/Error.tsx";
 import {selectDesigners, useAppDispatch, useTypedSelector} from "@/shared/store";
 import {getDesigners} from "@/shared/store/actions/designers";
-import {columns} from "@/pages/Designers/model/helper.ts";
-import DesignerThItem from "@/components/designerThItem/DesignerThItem.tsx";
-import {useTranslation} from "react-i18next";
+
+import {columns} from "./model/helper";
 import styles from "./styles.module.scss"
 
 const Designers = () => {

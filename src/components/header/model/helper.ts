@@ -9,6 +9,10 @@ export const langMap = {
         value: 'en',
         label: 'EN'
     },
+    "ru-RU": {
+        value: 'ru',
+        label: 'RU'
+    }
 }
 
 export const languagesValues: SelectTypes[] = [
