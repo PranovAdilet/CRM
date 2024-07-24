@@ -37,6 +37,7 @@ body {
    -ms-text-size-adjust: 100%;
    -moz-text-size-adjust: 100%;
    -webkit-text-size-adjust: 100%;
+   transition: background-color 0.2s, color 0.2s;
 
    * {
        scrollbar-width: thin;
@@ -54,5 +55,12 @@ body {
 
    background-color: var(--bg-color);
    position: relative;
+
+   @media (max-width: 850px) {
+      height: calc(100vh - 75px);
+      flex-direction: column-reverse;
+   }
 }
+
+
 

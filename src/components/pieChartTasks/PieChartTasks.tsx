@@ -34,7 +34,7 @@ const PieChartComponent: FC<StatusPieChartProps> = ({ tasks }) => {
 
     return (
         <div className={styles.pieChart}>
-            <PieChart width={450} height={400}>
+            <PieChart width={400} height={400} className={styles.pieChart__container}>
                 <Pie
                     data={data}
                     cx="50%"
@@ -50,7 +50,7 @@ const PieChartComponent: FC<StatusPieChartProps> = ({ tasks }) => {
                     ))}
                 </Pie>
                 <Tooltip />
-                <Legend />
+                <Legend align="left" className={styles.pieChart__legend}/>
             </PieChart>
         </div>
     );

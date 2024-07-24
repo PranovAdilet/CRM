@@ -15,7 +15,7 @@ const DesignerThItem:FC<DesignerColumnsTypes> = ({sortKey, label}) => {
         dispatch(setSort(value));
     }
     return (
-        <th>
+        <th className={styles.item__wrapper}>
             {
                 !sortKey && <span>{label}</span>
             }

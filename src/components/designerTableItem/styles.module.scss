@@ -9,3 +9,9 @@
     border-radius: 12px;
   }
 }
+
+@media (max-width: 850px) {
+  .item :first-child{
+    display: none;
+  }
+}

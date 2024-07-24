@@ -5,6 +5,10 @@
 
   cursor: pointer;
 
+  &__wrapper{
+
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: #007bff;
@@ -17,4 +21,12 @@
     position: relative;
   }
 
+}
+
+@media (max-width: 850px) {
+  .item{
+    &__wrapper:first-child{
+      display: none;
+    }
+  }
 }

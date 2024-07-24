@@ -19,7 +19,7 @@ export const getDesigners: GetCommentsThunk = createAsyncThunk(
                     key: filter?.key,
                     status: filter?.status,
                     limit: filter?.limit,
-                    page: filter?.page
+                    page: filter?.page,
                 }
             })
             return response.data

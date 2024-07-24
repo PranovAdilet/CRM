@@ -1,12 +1,71 @@
-.form{
-  &__button{
-    color: var(--grey, #8e8e93);
+$transition-duration: 0.2s;
 
-    svg{
-      width: 3rem;
+.button{
+  display: flex;
+  align-items: center;
+
+  &__text{
+    margin: 0 10px;
+  }
+
+  &__label{
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+  }
+  &__checkbox{
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .button__slider {
+      background-color: rgb(75 85 99);
+
+      &:before {
+        transform: translateX(16px);
+      }
     }
   }
-  &__sun{
-    color: #fff;
+
+  &__slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(75 85 99);
+    transition: $transition-duration;
+    border-radius: 34px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: $transition-duration;
+      border-radius: 50%;
+    }
   }
 }
+
+
+@media screen and (max-width: 500px) {
+  .button{
+    &__label{
+      width: 37px;
+      height: 20px;
+    }
+    &__slider:before{
+      width: 15px;
+      height: 15px;
+      bottom: 2.5px;
+      left: 3px;
+    }
+  }
+}
+

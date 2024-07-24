@@ -23,7 +23,7 @@ const TasksChart: FC<ChartProps> = ({ tasks }) => {
     return (
         <div className={styles.chart}>
             <h2 className={styles.chart__title}>{t("tasks.title")}</h2>
-            <ResponsiveContainer width="100%" height={500}>
+            <ResponsiveContainer width="100%" height="1%" className={styles.chart__container}>
                 <BarChart data={localizedData}>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis dataKey="week"/>

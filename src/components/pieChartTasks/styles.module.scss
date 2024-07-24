@@ -1,7 +1,33 @@
 .pieChart{
   margin-top: 1rem;
+
   *:focus {
     outline: none;
     box-shadow: none;
   }
+  &__container{
+    height: 450px !important;
+
+    @media (max-width: 1000px) {
+      height: 400px !important;
+    }
+
+    @media (max-width: 700px) {
+      width: 100% !important;
+      height: 300px !important;
+    }
+
+    @media (max-width: 500px) {
+    }
+  }
 }
+
+@media (max-width: 500px) {
+  .pieChart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 82px);
+  }
+}
+

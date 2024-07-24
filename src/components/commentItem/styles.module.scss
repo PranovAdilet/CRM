@@ -30,8 +30,8 @@
   }
 
   &__image{
-    width: 100px;
-    height: 100px;
+    width: 10rem;
+    height: 10rem;
     object-fit: cover;
     border-radius: 12px;
   }
@@ -40,5 +40,12 @@
     font-size: 12px;
     text-align: right;
     color: var(--grey);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card{
+    min-width: auto;
+    width: 100%;
   }
 }

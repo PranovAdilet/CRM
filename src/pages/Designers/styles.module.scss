@@ -11,7 +11,6 @@
     overflow-y: scroll;
 
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
   }
 
   table{
@@ -56,3 +55,14 @@
   --designers-th-background: #1F2223;
   --designers-border-color: rgb(58, 62, 65);
 }
+
+
+@media (max-width: 850px) {
+  .designers{
+    &__row{
+      height: calc(100vh - 34rem);
+      overflow-x: scroll;
+    }
+  }
+}
+

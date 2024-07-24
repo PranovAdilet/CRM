@@ -94,3 +94,12 @@
   }
 }
 
+
+@media screen and (max-width: 600px) {
+  .select{
+    min-width: auto;
+    &__selected, &__item{
+      font-size: 12px;
+    }
+  }
+}
