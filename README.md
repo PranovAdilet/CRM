@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# Creos CRM System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Введение
 
-Currently, two official plugins are available:
+Это тестовое задание было выполнено для оценки моих профессиональных качеств. В рамках задачи была создана небольшая CRM система с графиками и таблицей, а также реализована работа с данными.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Используемые технологии
 
-## Expanding the ESLint configuration
+- **Сборщик проекта:** Vite (React + TypeScript)
+- **Состояние приложения:** Redux Toolkit
+- **Локализация:** i18next
+- **Визуализация данных:** Recharts
+- **Работа с датами:** date-fns
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### Описание проекта
 
-- Configure the top-level `parserOptions` property like this:
+Что удалось выполнить:
+- [x] Переключение локалей (RU, EN) для интерфейса
+- [x] Переключение тем (светлая, темная)
+- [x] Отображение текущего номера рабочей недели
+- [x] Отображение последних 10 комментариев
+- [x] Отображение топ 10 дизайнеров
+- [x] График закрытых задач за месяц с распределением по номерам рабочей недели
+- [x] Круговая диаграмма с процентным соотношением статусов всех задач
+- [x] Таблица дизайнеров с сортировкой и фильтрацией
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+#### Build проекта
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Проект собирается без ошибок и готов к деплою.
