@@ -47,9 +47,9 @@ export interface IDesignerResponse {
 }
 
 export interface IFiltersDesigners {
-    key: string | null
-    status: string | null
-    page: number
+    key?: string | null
+    status?: string | null
+    page?: number
     limit: number
 }
 

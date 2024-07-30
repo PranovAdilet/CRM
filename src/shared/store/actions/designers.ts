@@ -13,7 +13,7 @@ export const getDesigners: GetCommentsThunk = createAsyncThunk(
     "designers/getDesigners",
     async ({sortBy, filter}, {rejectWithValue}) => {
         try {
-            const response = await instance("/designer/", {
+            const response = await instance(`/designer/`, {
                 params: {
                     ordering: sortBy,
                     key: filter?.key,

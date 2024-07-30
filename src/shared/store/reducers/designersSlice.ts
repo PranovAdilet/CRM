@@ -42,6 +42,15 @@ const designersSlice = createSlice({
             })
             .addCase(getDesigners.fulfilled, (state, action) => {
                 state.status = "resolved";
+                if (state.designers) {
+                    state.designers = {
+                        ...state.designers,
+                        results: [...state.designers.results, ...action.payload.results]
+                            .filter((item, index, self) =>
+                            index === self.findIndex((t) => t.email === item.email))
+                    }
+                    return
+                }
                 state.designers = action.payload;
             })
             .addCase(getDesigners.rejected, (state, action) => {

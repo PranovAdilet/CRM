@@ -9,7 +9,7 @@ export const getComments: GetCommentsThunk = createAsyncThunk(
     "comments/getComments",
     async () => {
         try {
-            const response= await instance.get("/comment/");
+            const response= await instance.get("/comment/?ordering=-date_created");
             return response.data;
         } catch (err) {
             console.error("Ошибка при получении комментариев:", err);

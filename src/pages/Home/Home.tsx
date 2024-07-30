@@ -26,8 +26,14 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getComments());
-        dispatch(getDesigners({}));
-    }, [dispatch]);
+        dispatch(getDesigners({filter: {limit: 128}}));
+    }, []);
+
+    useEffect(() => {
+        dispatch(getDesigners({filter: {limit: 128, page: 2}}));
+    }, []);
+
+    console.log(designers)
 
     const processedDesigners = useMemo(() => {
         if (!designers) return [];
@@ -35,7 +41,8 @@ const Home = () => {
         const initialAccumulator: InitialAccTypes[] = [];
 
         return designers.results.reduce((acc, designer) => {
-            const completedIssues = designer.issues.filter(issue => issue.date_finished_by_designer);
+            const completedIssues = designer.issues.filter(issue =>
+                issue.date_finished_by_designer);
             const taskDurations = completedIssues.map(calculateTaskDuration);
             const medianTaskDuration = calculateMedian(taskDurations);
 
@@ -49,9 +56,14 @@ const Home = () => {
 
             return acc;
         }, initialAccumulator)
-            .sort((a, b) =>
-                a.medianTaskDuration - b.medianTaskDuration || b.completedTasks - a.completedTasks)
-            .slice(0, 10);
+            .sort((a, b) => {
+                if (b.completedTasks !== a.completedTasks) {
+                    return b.completedTasks - a.completedTasks;
+                }
+
+                return a.medianTaskDuration - b.medianTaskDuration
+            })
+            // .slice(0, 10);
 
     }, [designers]);
 
