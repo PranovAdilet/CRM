@@ -10,7 +10,7 @@ const DesignerPagination = () => {
     const dispatch = useAppDispatch()
 
     const handleNextPage = () => {
-        if (designers?.next){
+        if (designers?.next && filter.page){
             dispatch(setFilter({
                 key: "page",
                 value: filter?.page + 1
@@ -18,7 +18,7 @@ const DesignerPagination = () => {
         }
     }
     const handlePrevPage = () => {
-        if (designers?.previous){
+        if (designers?.previous && filter.page){
             dispatch(setFilter({
                 key: "page",
                 value: filter?.page - 1
@@ -45,6 +45,7 @@ const DesignerPagination = () => {
                 pages.push(i);
             }
         } else {
+            if (!currentPage) return
             pages.push(1);
             if (currentPage > 3) {
                 pages.push("...");
